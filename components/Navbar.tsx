@@ -5,8 +5,18 @@ import { motion, AnimatePresence } from "framer-motion";
 import { LayoutGrid, Menu, X, Moon, Sun, MousePointer2, Palette } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useAccentTheme, ACCENT_THEMES } from "./AccentThemeProvider";
+import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 
-const NAV_ITEMS = ["About", "Services", "Industries", "Testimonials", "Team", "Contact"];
+const NAV_ITEMS = [
+    { name: "Home", path: "/", isSection: false },
+    { name: "About", path: "/about", isSection: false },
+    { name: "Services", path: "/#services", isSection: true },
+    { name: "Case Studies", path: "/case-studies", isSection: false },
+    { name: "Industries", path: "/#industries", isSection: true },
+    { name: "Team", path: "/#team", isSection: true },
+    { name: "Contact", path: "/#contact", isSection: true },
+];
 
 export default function Navbar() {
     const [scrolled, setScrolled] = useState(false);
@@ -16,6 +26,8 @@ export default function Navbar() {
     const { resolvedTheme, setTheme } = useTheme();
     const { accent, setAccent } = useAccentTheme();
     const [mounted, setMounted] = useState(false);
+    const pathname = usePathname();
+    const router = useRouter();
 
     useEffect(() => {
         setMounted(true);
@@ -37,11 +49,18 @@ export default function Navbar() {
         window.dispatchEvent(new CustomEvent("cursor-toggle", { detail: { enabled: newState } }));
     };
 
-    const scrollToSection = (id: string) => {
+    const handleNavClick = (item: { name: string; path: string; isSection: boolean }) => {
         setMobileOpen(false);
-        const el = document.getElementById(id.toLowerCase());
-        if (el) {
-            el.scrollIntoView({ behavior: "smooth" });
+        if (item.isSection) {
+            if (pathname === "/") {
+                const id = item.path.split("#")[1];
+                const el = document.getElementById(id);
+                if (el) el.scrollIntoView({ behavior: "smooth" });
+            } else {
+                router.push(item.path);
+            }
+        } else {
+            router.push(item.path);
         }
     };
 
@@ -59,24 +78,24 @@ export default function Navbar() {
                     }`}
             >
                 {/* Logo */}
-                <div className="flex items-center gap-2.5">
+                <Link href="/" className="flex items-center gap-2.5 hover:scale-105 transition-transform active:scale-95">
                     <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-linear-to-br from-indigo-500 to-blue-600 text-white shadow-lg shadow-indigo-500/30">
                         <LayoutGrid size={18} />
                     </div>
                     <span className="text-xl font-bold tracking-tight text-foreground">
                         Triveda
                     </span>
-                </div>
+                </Link>
 
                 {/* Desktop Nav */}
                 <div className="hidden items-center gap-1 lg:flex">
                     {NAV_ITEMS.map((item) => (
                         <button
-                            key={item}
-                            onClick={() => scrollToSection(item)}
+                            key={item.name}
+                            onClick={() => handleNavClick(item)}
                             className="rounded-lg px-4 py-2 text-sm font-medium text-muted-foreground transition-all duration-300 hover:bg-indigo-500/5 hover:text-indigo-400"
                         >
-                            {item}
+                            {item.name}
                         </button>
                     ))}
                 </div>
@@ -162,7 +181,7 @@ export default function Navbar() {
                     </button>
 
                     <button
-                        onClick={() => scrollToSection("contact")}
+                        onClick={() => handleNavClick(NAV_ITEMS.find(n => n.name === 'Contact') || NAV_ITEMS[5])}
                         className="hidden rounded-xl bg-indigo-600 px-5 py-2 text-sm font-semibold text-white shadow-lg shadow-indigo-500/25 transition-all duration-300 hover:shadow-indigo-500/40 hover:bg-indigo-500 active:scale-[0.98] sm:block ml-2"
                     >
                         Contact
@@ -189,16 +208,16 @@ export default function Navbar() {
                         <div className="grid grid-cols-1 gap-1">
                             {NAV_ITEMS.map((item) => (
                                 <button
-                                    key={item}
-                                    onClick={() => scrollToSection(item)}
+                                    key={item.name}
+                                    onClick={() => handleNavClick(item)}
                                     className="block w-full rounded-lg px-4 py-3 text-left text-sm font-medium text-muted-foreground transition-colors hover:bg-indigo-500/5 hover:text-indigo-400"
                                 >
-                                    {item}
+                                    {item.name}
                                 </button>
                             ))}
                         </div>
                         <button
-                            onClick={() => scrollToSection("contact")}
+                            onClick={() => handleNavClick(NAV_ITEMS.find(n => n.name === 'Contact') || NAV_ITEMS[5])}
                             className="mt-3 w-full rounded-xl bg-indigo-600 py-3 text-sm font-semibold text-white"
                         >
                             Get in Touch

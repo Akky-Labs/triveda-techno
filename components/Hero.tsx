@@ -24,8 +24,11 @@ function PulsingCore({ colors }: { colors: { color400: string; color500: string;
         return () => window.removeEventListener("mousemove", handleMouseMove);
     }, []);
 
-    useFrame((state) => {
-        const t = state.clock.getElapsedTime();
+    const elapsedTimeRef = useRef(0);
+
+    useFrame((state, delta) => {
+        elapsedTimeRef.current += delta;
+        const t = elapsedTimeRef.current;
         if (meshRef.current) {
             meshRef.current.rotation.x = t * 0.1;
             meshRef.current.rotation.y = t * 0.15;
@@ -128,7 +131,7 @@ export default function Hero() {
                                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
                                 className="inline-block text-foreground cursor-default py-1"
                             >
-                                Engineering
+                                Build Scalable
                             </motion.span>
                             <br />
                             <motion.span
@@ -136,7 +139,7 @@ export default function Hero() {
                                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
                                 className="inline-block text-foreground cursor-default py-1"
                             >
-                                Intelligent
+                                Digital & AI
                             </motion.span>
                             <br />
                             <motion.span
@@ -144,7 +147,7 @@ export default function Hero() {
                                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
                                 className="inline-block bg-linear-to-r from-indigo-500 via-cyan-500 to-indigo-500 bg-clip-text text-transparent text-5xl sm:text-7xl md:text-[6.5rem] cursor-default py-2 font-black leading-[1.1]"
                             >
-                                Digital Transformation
+                                Solutions for Modern Businesses
                             </motion.span>
                         </motion.h1>
 
@@ -153,9 +156,9 @@ export default function Hero() {
                             initial={{ y: 30, opacity: 0 }}
                             animate={{ y: 0, opacity: 1 }}
                             transition={{ duration: 0.8, delay: 0.4 }}
-                            className="text-base sm:text-lg text-muted-foreground max-w-md leading-relaxed"
+                            className="text-base sm:text-lg text-muted-foreground max-w-2xl leading-relaxed"
                         >
-                            Enterprise Software · AI Solutions · Cloud Systems · Secure Scalability
+                            At Triveda Technologies, we help startups and enterprises design, build, and scale powerful technology solutions — from custom software to AI-driven transformation.
                         </motion.p>
 
                         {/* CTAs */}

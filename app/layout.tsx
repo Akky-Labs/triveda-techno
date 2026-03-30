@@ -32,7 +32,7 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en" suppressHydrationWarning className={`${inter.variable} ${lato.variable}`}>
-            <body className="min-h-screen bg-background font-sans antialiased text-foreground">
+            <body className="min-h-screen bg-background font-sans antialiased text-foreground" suppressHydrationWarning>
                 <ThemeProvider
                     attribute="class"
                     defaultTheme="dark"

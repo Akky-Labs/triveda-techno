@@ -41,20 +41,19 @@ export default function Contact() {
                         className="mb-20 overflow-hidden rounded-3xl border border-indigo-500/20 bg-linear-to-br from-indigo-600/10 via-card to-blue-600/5 p-10 md:p-16 text-center backdrop-blur-xl"
                     >
                         <h2 className="text-4xl md:text-5xl font-bold font-heading text-foreground mb-5 tracking-tighter">
-                            <TextReveal text="Let's Build Something" />{" "}
-                            <TextReveal text="Extraordinary" gradient />
+                            <TextReveal text="Let’s Build Something" />{" "}
+                            <TextReveal text="Great Together" gradient />
                         </h2>
                         <p className="mx-auto max-w-xl text-lg text-muted-foreground mb-8 font-sans">
-                            Ready to transform your business? Let&apos;s discuss how we can help you
-                            achieve your digital goals.
+                            Have a project in mind or looking to scale your business with technology? Get in touch with our team.
                         </p>
                         <div className="flex flex-wrap items-center justify-center gap-4 text-sm text-muted-foreground">
                             <a
-                                href="mailto:sales@trivedatechnologies.in"
+                                href="mailto:care@trivedatechnologies.com"
                                 className="flex items-center gap-2 rounded-xl border border-border bg-card px-5 py-2.5 transition-all hover:bg-accent hover:border-indigo-500/30"
                             >
                                 <Mail size={16} className="text-indigo-400" />
-                                sales@trivedatechnologies.in
+                                care@trivedatechnologies.com
                             </a>
                             <a
                                 href="tel:+919973243422"

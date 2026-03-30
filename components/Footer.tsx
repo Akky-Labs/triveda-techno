@@ -3,11 +3,26 @@
 import React from "react";
 import { LayoutGrid } from "lucide-react";
 
+import Link from "next/link";
+
 export default function Footer() {
     const FOOTER_LINKS = {
-        Product: ["Technology Solutions", "AI & Analytics", "Cloud Services", "Digital Marketing"],
-        Company: ["About Us", "Careers", "Blog", "Contact"],
-        Resources: ["Documentation", "Case Studies", "Whitepapers", "FAQ"],
+        Services: [
+            { name: "Product", path: "/services/product" },
+            { name: "Technology Solutions", path: "/services/technology" },
+            { name: "AI & Analytics", path: "/services/ai-analytics" },
+            { name: "Cloud Services", path: "/services/cloud" },
+            { name: "Digital Marketing", path: "/services/marketing" },
+        ],
+        Company: [
+            { name: "About Us", path: "/about" },
+            { name: "Case Studies", path: "/case-studies" },
+            { name: "Contact", path: "/#contact" },
+        ],
+        Resources: [
+            { name: "Technology Trail", path: "/#team" },
+            { name: "Success Stories", path: "/case-studies" },
+        ],
     };
 
     return (
@@ -39,13 +54,13 @@ export default function Footer() {
                             <h4 className="mb-4 text-sm font-bold text-foreground">{col}</h4>
                             <ul className="space-y-2.5 text-xs">
                                 {links.map((link) => (
-                                    <li key={link}>
-                                        <a
-                                            href="#"
+                                    <li key={link.name}>
+                                        <Link
+                                            href={link.path}
                                             className="text-muted-foreground transition-colors duration-300 hover:text-indigo-500"
                                         >
-                                            {link}
-                                        </a>
+                                            {link.name}
+                                        </Link>
                                     </li>
                                 ))}
                             </ul>
@@ -68,7 +83,7 @@ export default function Footer() {
                             LinkedIn
                         </a>
                         <a
-                            href="mailto:sales@trivedatechnologies.in"
+                            href="mailto:care@trivedatechnologies.com"
                             className="transition-colors hover:text-indigo-500"
                         >
                             Email

@@ -9,6 +9,7 @@ import {
     TrendingUp,
     HeartHandshake,
     Compass,
+    Trophy,
 } from "lucide-react";
 import { GlowCard } from "./GlowCard";
 import {
@@ -63,6 +64,14 @@ const SERVICES = [
         bg: "bg-cyan-500/10",
     },
     {
+        icon: Trophy,
+        title: "CX & Loyalty Platforms",
+        description:
+            "Enhance customer engagement, retention, and lifetime value through personalized experiences.",
+        color: "text-blue-400",
+        bg: "bg-blue-500/10",
+    },
+    {
         icon: Compass,
         title: "Consulting & Strategy",
         description:
@@ -97,8 +106,8 @@ export default function Services() {
 
                     <ScaleOnScroll>
                         <h2 className="text-4xl font-bold font-heading tracking-tight text-foreground md:text-5xl">
-                            <TextReveal text="Comprehensive Solutions for" />{" "}
-                            <TextReveal text="Every Challenge" gradient />
+                            <TextReveal text="End-to-End Technology &" />{" "}
+                            <TextReveal text="Growth Solutions" gradient />
                         </h2>
                     </ScaleOnScroll>
 
@@ -109,8 +118,7 @@ export default function Services() {
                         transition={{ duration: 0.8, delay: 0.3 }}
                         className="mx-auto mt-5 max-w-2xl text-lg text-muted-foreground"
                     >
-                        Full-spectrum technology services to help enterprises innovate, scale,
-                        and stay ahead.
+                        We combine technology, data, and strategy to solve complex business problems and drive measurable growth.
                     </motion.p>
                 </div>
 

@@ -4,11 +4,11 @@ import React from "react";
 import { motion } from "framer-motion";
 import {
     GraduationCap,
-    ShieldCheck,
+    Layers,
+    Bot,
     Zap,
-    Users,
-    Clock,
-    Lock,
+    ShieldCheck,
+    TrendingUp,
 } from "lucide-react";
 import {
     ScaleOnScroll,
@@ -23,44 +23,44 @@ import {
 const ADVANTAGES = [
     {
         icon: GraduationCap,
-        title: "IIM & IIT Alumni Leadership",
+        title: "IIM & IIT alumni leadership",
         description:
             "Guided by leaders from India's most prestigious institutions with decades of industry expertise.",
         color: "from-indigo-500 to-blue-500",
     },
     {
-        icon: ShieldCheck,
-        title: "Quality First Approach",
+        icon: Layers,
+        title: "End-to-End Ownership",
         description:
-            "Enterprise-grade standards across every deliverable — no compromises.",
+            "From ideation to execution and scaling — we handle everything.",
         color: "from-cyan-500 to-blue-500",
     },
     {
-        icon: Zap,
-        title: "Startup Agility",
+        icon: Bot,
+        title: "AI-First Approach",
         description:
-            "Delivering fast without sacrificing quality, governance, or attention to detail.",
+            "We embed intelligence into every solution we build.",
         color: "from-blue-500 to-indigo-500",
     },
     {
-        icon: Users,
-        title: "Client-Centric Focus",
+        icon: Zap,
+        title: "Faster Time-to-Market",
         description:
-            "Success metrics aligned with your KPIs. Your goals are our goals.",
+            "Agile execution ensures rapid delivery without compromising quality.",
         color: "from-indigo-500 to-cyan-500",
     },
     {
-        icon: Clock,
-        title: "Timely Delivery",
+        icon: ShieldCheck,
+        title: "Enterprise-Grade Execution",
         description:
-            "On-time and on-budget execution with transparent progress tracking.",
+            "Scalable, secure, and robust solutions designed for long-term growth.",
         color: "from-cyan-500 to-indigo-500",
     },
     {
-        icon: Lock,
-        title: "Enterprise-Grade Security",
+        icon: TrendingUp,
+        title: "Growth-Focused Thinking",
         description:
-            "Security integrated from day one — compliance, encryption, and best practices.",
+            "Every solution is aligned with business outcomes and ROI.",
         color: "from-blue-500 to-cyan-500",
     },
 ];
@@ -88,7 +88,7 @@ export default function Advantages() {
                     <ScaleOnScroll>
                         <h2 className="text-4xl font-bold font-heading tracking-tight text-foreground md:text-5xl">
                             <TextReveal text="Why Choose" />{" "}
-                            <TextReveal text="Triveda Technologies" gradient />
+                            <TextReveal text="Triveda?" gradient />
                         </h2>
                     </ScaleOnScroll>
 
@@ -99,8 +99,7 @@ export default function Advantages() {
                         transition={{ duration: 0.8, delay: 0.3 }}
                         className="mx-auto mt-5 max-w-2xl text-lg text-muted-foreground"
                     >
-                        We combine institutional expertise with startup agility to deliver
-                        exceptional digital outcomes.
+                        We combine institutional excellence with a commitment to delivery and growth.
                     </motion.p>
                 </div>
 

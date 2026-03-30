@@ -72,11 +72,9 @@ export default function About() {
                         whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8, delay: 0.3 }}
-                        className="mx-auto mt-6 max-w-3xl text-lg text-muted-foreground leading-relaxed"
+                        className="mx-auto mt-6 max-w-3xl text-lg text-muted-foreground leading-relaxed font-medium"
                     >
-                        Triveda Technologies specializes in enterprise-grade software, AI-driven
-                        automation, and scalable cloud infrastructures. We transform complex
-                        business challenges into elegant, scalable digital solutions.
+                        Triveda Technologies is a technology consulting company delivering scalable digital, AI, and growth solutions to businesses worldwide.
                     </motion.p>
                 </div>
 
