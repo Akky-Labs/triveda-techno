@@ -7,9 +7,11 @@ import { cn } from "@/lib/utils";
 export function GlowCard({
     children,
     className,
+    showGlow = true,
 }: {
     children: React.ReactNode;
     className?: string;
+    showGlow?: boolean;
 }) {
     const ref = useRef<HTMLDivElement>(null);
     const mouseX = useMotionValue(0);
@@ -33,18 +35,23 @@ export function GlowCard({
             ref={ref}
             onMouseMove={handleMouseMove}
             className={cn(
-                "group relative overflow-hidden rounded-2xl border border-border bg-card backdrop-blur-xl transition-all duration-500 hover:border-indigo-500/20",
+                "group relative overflow-hidden rounded-2xl border border-border bg-card backdrop-blur-xl transition-all duration-500",
+                showGlow ? "hover:border-indigo-500/20" : "hover:border-indigo-500/50 hover:shadow-2xl hover:shadow-indigo-500/10",
                 className
             )}
         >
-            <motion.div
-                className="pointer-events-none absolute -inset-px rounded-2xl opacity-0 transition duration-500 group-hover:opacity-100"
-                style={{ background }}
-            />
-            <motion.div
-                className="pointer-events-none absolute -inset-px rounded-2xl opacity-0 transition duration-500 group-hover:opacity-100"
-                style={{ background: borderGlow }}
-            />
+            {showGlow && (
+                <>
+                    <motion.div
+                        className="pointer-events-none absolute -inset-px rounded-2xl opacity-0 transition duration-500 group-hover:opacity-100"
+                        style={{ background }}
+                    />
+                    <motion.div
+                        className="pointer-events-none absolute -inset-px rounded-2xl opacity-0 transition duration-500 group-hover:opacity-100"
+                        style={{ background: borderGlow }}
+                    />
+                </>
+            )}
             <div className="relative h-full">{children}</div>
         </div>
     );

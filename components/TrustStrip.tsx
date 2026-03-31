@@ -36,7 +36,7 @@ export default function TrustStrip() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.7, ease: "easeOut" }}
-                    className="bg-card/40 backdrop-blur-2xl border border-border/50 rounded-3xl p-6 md:p-10 shadow-[0_20px_50px_rgba(0,0,0,0.3)]"
+                    className="bg-card/40 backdrop-blur-2xl border border-border/80 rounded-3xl p-6 md:p-10 shadow-xl shadow-indigo-500/10"
                 >
                     <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12">
                         <div className="shrink-0 text-center md:text-left">

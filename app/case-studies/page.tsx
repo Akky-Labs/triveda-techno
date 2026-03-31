@@ -42,14 +42,14 @@ export default function CaseStudiesPage() {
                     <SectionDivider />
 
                     {/* Sequential Case Study Sections */}
-                    <div className="max-w-7xl mx-auto px-4 py-20 space-y-32 md:space-y-48">
-                        {CASE_STUDIES.map((study) => (
-                            <CaseStudyItem key={study.id} study={study} />
+                    <div className="max-w-7xl mx-auto px-4 py-10 space-y-20 md:space-y-32">
+                        {CASE_STUDIES.map((study, index) => (
+                            <CaseStudyItem key={study.id} study={study} index={index} />
                         ))}
                     </div>
 
                     {/* Dynamic Conversion Section */}
-                    <section className="px-4 py-32 text-center bg-card/20 border-y border-border">
+                    <section className="px-4 py-20 text-center bg-card/20 border-y border-border">
                         <div className="max-w-4xl mx-auto">
                             <h2 className="text-2xl md:text-4xl lg:text-5xl font-black font-heading tracking-tight mb-8">
                                 Ready to write your <span className="text-indigo-500">Success Story</span>?

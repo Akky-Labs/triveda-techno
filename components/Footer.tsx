@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { LayoutGrid } from "lucide-react";
+import { LayoutGrid, ArrowUpRight } from "lucide-react";
 
 import Link from "next/link";
 
@@ -57,9 +57,15 @@ export default function Footer() {
                                     <li key={link.name}>
                                         <Link
                                             href={link.path}
-                                            className="text-muted-foreground transition-colors duration-300 hover:text-indigo-500"
+                                            className="group flex items-center gap-1 text-muted-foreground transition-all duration-300 hover:text-indigo-400"
                                         >
-                                            {link.name}
+                                            <span className="transition-all duration-300 group-hover:translate-x-0.5">
+                                                {link.name}
+                                            </span>
+                                            <ArrowUpRight 
+                                                size={10} 
+                                                className="opacity-0 -translate-y-0.5 -translate-x-0.5 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0" 
+                                            />
                                         </Link>
                                     </li>
                                 ))}
@@ -78,21 +84,33 @@ export default function Footer() {
                             href="https://www.linkedin.com/company/triveda-technologies"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="transition-colors hover:text-indigo-500"
+                            className="group flex items-center gap-1 transition-all hover:text-indigo-400"
                         >
-                            LinkedIn
+                            <span>LinkedIn</span>
+                            <ArrowUpRight 
+                                size={10} 
+                                className="opacity-0 -translate-y-0.5 -translate-x-0.5 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0" 
+                            />
                         </a>
                         <a
                             href="mailto:care@trivedatechnologies.com"
-                            className="transition-colors hover:text-indigo-500"
+                            className="group flex items-center gap-1 transition-all hover:text-indigo-400"
                         >
-                            Email
+                            <span>Email</span>
+                            <ArrowUpRight 
+                                size={10} 
+                                className="opacity-0 -translate-y-0.5 -translate-x-0.5 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0" 
+                            />
                         </a>
                         <a
                             href="tel:+919973243422"
-                            className="transition-colors hover:text-indigo-500"
+                            className="group flex items-center gap-1 transition-all hover:text-indigo-400"
                         >
-                            Phone
+                            <span>Phone</span>
+                            <ArrowUpRight 
+                                size={10} 
+                                className="opacity-0 -translate-y-0.5 -translate-x-0.5 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0" 
+                            />
                         </a>
                     </div>
                 </div>
@@ -100,3 +118,4 @@ export default function Footer() {
         </footer>
     );
 }
+

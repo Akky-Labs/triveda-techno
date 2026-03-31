@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { LayoutGrid, Menu, X, Moon, Sun, MousePointer2, Palette } from "lucide-react";
+import { LayoutGrid, Menu, X, Moon, Sun, Palette } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useAccentTheme, ACCENT_THEMES } from "./AccentThemeProvider";
 import Link from "next/link";
@@ -21,7 +21,7 @@ const NAV_ITEMS = [
 export default function Navbar() {
     const [scrolled, setScrolled] = useState(false);
     const [mobileOpen, setMobileOpen] = useState(false);
-    const [cursorEnabled, setCursorEnabled] = useState(true);
+
     const [paletteOpen, setPaletteOpen] = useState(false);
     const { resolvedTheme, setTheme } = useTheme();
     const { accent, setAccent } = useAccentTheme();
@@ -34,20 +34,12 @@ export default function Navbar() {
         const handler = () => setScrolled(window.scrollY > 60);
         window.addEventListener("scroll", handler);
 
-        const storedCursor = localStorage.getItem("custom-cursor-enabled");
-        if (storedCursor !== null) {
-            setCursorEnabled(storedCursor === "true");
-        }
+
 
         return () => window.removeEventListener("scroll", handler);
     }, []);
 
-    const toggleCursor = () => {
-        const newState = !cursorEnabled;
-        setCursorEnabled(newState);
-        localStorage.setItem("custom-cursor-enabled", newState.toString());
-        window.dispatchEvent(new CustomEvent("cursor-toggle", { detail: { enabled: newState } }));
-    };
+
 
     const handleNavClick = (item: { name: string; path: string; isSection: boolean }) => {
         setMobileOpen(false);
@@ -168,17 +160,7 @@ export default function Navbar() {
                         {resolvedTheme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
                     </button>
 
-                    {/* Cursor Toggle */}
-                    <button
-                        onClick={toggleCursor}
-                        className={`hidden min-[800px]:flex h-9 w-9 items-center justify-center rounded-xl border transition-all ${cursorEnabled
-                                ? "border-indigo-500/40 bg-indigo-500/10 text-indigo-400"
-                                : "border-white/10 bg-white/5 text-muted-foreground"
-                            } hover:scale-105`}
-                        title={cursorEnabled ? "Disable Custom Cursor" : "Enable Custom Cursor"}
-                    >
-                        <MousePointer2 size={16} />
-                    </button>
+
 
                     <button
                         onClick={() => handleNavClick(NAV_ITEMS.find(n => n.name === 'Contact') || NAV_ITEMS[5])}

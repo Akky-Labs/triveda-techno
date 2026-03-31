@@ -66,9 +66,10 @@ function PulsingCore({ colors }: { colors: { color400: string; color500: string;
                     wireframe
                 />
             </Sphere>
-            <ambientLight intensity={0.5} />
-            <directionalLight position={[10, 10, 5]} intensity={2} color={colors.color400} />
-            <pointLight position={[-10, -10, -10]} intensity={5} color={colors.colorSecondary} />
+            <ambientLight intensity={1.5} />
+            <directionalLight position={[10, 10, 10]} intensity={3} color={colors.color400} />
+            <pointLight position={[-10, 5, -10]} intensity={4} color={colors.colorSecondary} />
+            <pointLight position={[0, -10, 0]} intensity={2} color={colors.color500} />
         </group>
     );
 }
@@ -89,7 +90,7 @@ function GlassCard({
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay }}
             whileHover={{ y: -5, transition: { duration: 0.2 } }}
-            className={`p-5 sm:p-6 md:p-8 rounded-2xl md:rounded-3xl border border-border bg-card/80 backdrop-blur-xl shadow-2xl overflow-hidden relative group ${className}`}
+            className={`p-5 sm:p-6 md:p-8 rounded-2xl md:rounded-3xl border border-border/80 bg-card/80 backdrop-blur-xl shadow-xl shadow-indigo-500/10 overflow-hidden relative group ${className}`}
         >
             <div className="absolute top-0 left-0 w-full h-full bg-linear-to-br from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
             {children}
@@ -124,7 +125,7 @@ export default function Hero() {
                             initial={{ opacity: 0, scale: 0.9 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.8, delay: 0.1 }}
-                            className="text-3xl sm:text-5xl md:text-6xl font-black font-heading tracking-tighter leading-tight md:leading-none overflow-visible"
+                            className="text-4xl sm:text-6xl md:text-7xl font-black font-heading tracking-tighter leading-tight md:leading-none overflow-visible"
                         >
                             <motion.span
                                 whileHover={{ scale: 1.02, x: 5 }}
@@ -145,7 +146,7 @@ export default function Hero() {
                             <motion.span
                                 whileHover={{ scale: 1.02, x: 5 }}
                                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                                className="inline-block bg-linear-to-r from-indigo-500 via-cyan-500 to-indigo-500 bg-clip-text text-transparent text-4xl sm:text-6xl md:text-7xl cursor-default py-1.5 font-black leading-[1.1]"
+                                className="inline-block bg-linear-to-r from-indigo-500 via-cyan-500 to-indigo-500 bg-clip-text text-transparent text-5xl sm:text-7xl md:text-8xl cursor-default py-1.5 font-black leading-[1.1]"
                             >
                                 Solutions for Modern Businesses
                             </motion.span>

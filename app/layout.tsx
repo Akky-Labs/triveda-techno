@@ -3,7 +3,7 @@ import { Inter, Lato } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { AccentThemeProvider } from "@/components/AccentThemeProvider";
-import CustomCursor from "@/components/CustomCursor";
+
 
 const inter = Inter({
     subsets: ["latin"],
@@ -40,7 +40,7 @@ export default function RootLayout({
                     disableTransitionOnChange
                 >
                     <AccentThemeProvider>
-                        <CustomCursor />
+
                         {children}
                     </AccentThemeProvider>
                 </ThemeProvider>

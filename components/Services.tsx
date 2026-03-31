@@ -139,7 +139,10 @@ function ServiceCard({ service }: { service: typeof SERVICES[0] }) {
     return (
         <StaggerItem>
             <FloatingCard>
-                <GlowCard className={`h-full p-7 transition-all duration-500 ${isExpanded ? 'ring-1 ring-indigo-500/30' : ''}`}>
+                <GlowCard 
+                    showGlow={false}
+                    className={`h-full p-7 transition-all duration-500 ${isExpanded ? 'border-indigo-500/50 shadow-2xl shadow-indigo-500/10' : ''}`}
+                >
                     <div className={`mb-5 inline-flex rounded-xl ${service.bg} p-3`}>
                         <service.icon size={24} className={service.color} />
                     </div>

@@ -129,7 +129,7 @@ function ImageTrail({
     return (
         <div
             ref={containerRef}
-            className={`relative flex justify-center items-center h-[400px] md:h-screen w-full overflow-hidden cursor-none ${className}`}
+            className={`relative flex justify-center items-center h-[350px] md:h-[75vh] w-full overflow-hidden cursor-none ${className}`}
         >
             {images.map((url, index) => (
                 <img
@@ -146,12 +146,12 @@ function ImageTrail({
             ))}
 
             <div className="relative z-10 flex flex-col items-center pointer-events-none select-none">
-                <span className="text-xs md:text-sm font-mono tracking-[0.5em] text-indigo-500 mb-4 bg-indigo-500/5 px-4 py-1.5 rounded-full border border-indigo-500/10">
+                <span className="text-[10px] md:text-xs font-mono tracking-[0.5em] text-indigo-500 mb-3 bg-indigo-500/5 px-4 py-1.5 rounded-full border border-indigo-500/10">
                     OUR CORE ASSETS
                 </span>
                 <TextFillReveal
                     text="TEAM TRIVEDA"
-                    className="text-[12vw] md:text-[8vw] font-black text-white mix-blend-difference leading-none tracking-tighter text-center italic"
+                    className="text-[12vw] md:text-[8vw] font-black text-zinc-900 dark:text-white leading-none tracking-tighter text-center italic transition-colors duration-500"
                 />
             </div>
         </div>
@@ -162,15 +162,15 @@ export default function Team() {
     return (
         <section
             id="team"
-            className="relative z-10 border-t border-border bg-background py-12 md:py-16"
+            className="relative z-10 border-t border-border bg-background py-8 md:py-12"
         >
-            <div className="mx-auto max-w-6xl px-4 md:px-6 mb-12">
-                <div className="flex flex-col mb-6">
-                    <h2 className="text-4xl md:text-5xl font-bold font-heading text-foreground tracking-tighter">
+            <div className="mx-auto max-w-6xl px-4 md:px-6 mb-8">
+                <div className="flex flex-col mb-4">
+                    <h2 className="text-3xl md:text-5xl font-bold font-heading text-foreground tracking-tighter">
                         <TextReveal text="Creative" />{" "}
                         <TextReveal text="Engineers" gradient />
                     </h2>
-                    <p className="mt-5 max-w-xl text-lg text-muted-foreground">
+                    <p className="mt-3 max-w-xl text-base md:text-lg text-muted-foreground leading-relaxed">
                         Behind every intelligent ecosystem is a team of visionary specialized
                         experts committed to engineering excellence.
                     </p>
@@ -179,8 +179,8 @@ export default function Team() {
 
             <ImageTrail trailDistance={140} />
 
-            <div className="mt-10 text-center">
-                <p className="text-xs font-mono uppercase tracking-[0.2em] text-muted-foreground opacity-50">
+            <div className="mt-6 text-center">
+                <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-muted-foreground opacity-50">
                     MOVE YOUR CURSOR TO DISCOVER
                 </p>
             </div>
