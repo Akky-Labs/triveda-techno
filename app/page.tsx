@@ -16,14 +16,12 @@ import Team from "@/components/Team";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import DigitalEcosystem from "@/components/DigitalEcosystem";
-import TechCompass from "@/components/TechCompass";
 import { ScrollProgress } from "@/components/ScrollEffects";
 
 export default function Home() {
     return (
         <div className="min-h-screen bg-background text-foreground transition-colors duration-300 selection:bg-indigo-500/30 selection:text-indigo-200 overflow-x-hidden">
             <DigitalEcosystem />
-            <TechCompass />
             <ScrollProgress />
             <SmoothScroll>
                 <Navbar />
