@@ -5,10 +5,6 @@ import { motion } from "framer-motion";
 import { CheckCircle2, Rocket, Users } from "lucide-react";
 import { EDGE_POINTS } from "@/constants/aboutData";
 
-/**
- * AboutEdge Component
- * Highlights the leadership value proposition and deep industry experience.
- */
 export const AboutEdge = () => {
     return (
         <section className="px-4 py-24 md:py-36 bg-background/50 relative overflow-hidden">
@@ -28,14 +24,14 @@ export const AboutEdge = () => {
                         <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-10">
                             Our team brings together decades of hands-on experience working across complex systems, large-scale platforms, and high-growth environments.
                         </p>
-                        
+
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             {EDGE_POINTS.map((point, i) => (
                                 <EdgePointItem key={i} point={point} index={i} />
                             ))}
                         </div>
                     </div>
-                    
+
                     <ExperienceCard />
                 </div>
             </div>
@@ -44,7 +40,7 @@ export const AboutEdge = () => {
 };
 
 const EdgePointItem = ({ point, index }: { point: string, index: number }) => (
-    <motion.div 
+    <motion.div
         initial={{ opacity: 0, y: 10 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ delay: index * 0.1 }}
