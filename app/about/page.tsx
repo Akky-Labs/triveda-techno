@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { ArrowRight } from "lucide-react";
 
 // Layout & Global Components
 import Navbar from "@/components/Navbar";
@@ -9,7 +8,6 @@ import Footer from "@/components/Footer";
 import SmoothScroll from "@/components/SmoothScroll";
 import DigitalEcosystem from "@/components/DigitalEcosystem";
 import { SectionDivider } from "@/components/ScrollEffects";
-import AboutImageTrail from "@/components/AboutImageTrail";
 
 // Modular Sub-components
 import { AboutHero } from "@/components/about/AboutHero";
@@ -57,22 +55,7 @@ export default function AboutPage() {
                     
                     <SectionDivider />
 
-                    {/* Closing Section with Team Interaction */}
-                    <AboutImageTrail />
-
-                    <section className="px-4 py-24 md:py-32 text-center bg-background border-t border-border">
-                        <div className="max-w-4xl mx-auto">
-                            <h2 className="text-3xl md:text-5xl font-black font-heading tracking-tight mb-8">
-                                Team <span className="text-indigo-500">Triveda</span>
-                            </h2>
-                            <button 
-                                onClick={navigateToContact}
-                                className="inline-flex items-center gap-3 px-10 py-5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-3xl font-bold text-lg transition-all shadow-2xl shadow-indigo-500/20 active:scale-95"
-                            >
-                                Start Your Journey With Us <ArrowRight size={22} />
-                            </button>
-                        </div>
-                    </section>
+                    {/* Content ends before Contact section which is on Home but usually accessible via CTA */}
                 </main>
                 
                 <Footer />

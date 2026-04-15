@@ -157,18 +157,7 @@ function Card({ industry, index }: { industry: typeof INDUSTRIES[0]; index: numb
                     />
                     <div className={`absolute inset-0 bg-linear-to-r ${index % 2 === 1 ? "from-transparent via-card/5 to-card" : "from-card via-card/5 to-transparent"}`} />
 
-                    {/* Floating Badge */}
-                    <div className={`absolute bottom-5 ${index % 2 === 1 ? "left-5" : "right-5"} p-4 bg-background/60 backdrop-blur-xl border border-white/10 rounded-xl flex items-center justify-between shadow-lg`}>
-                        <div className={index % 2 === 1 ? "mr-4" : ""}>
-                            <p className="text-[9px] font-bold uppercase tracking-widest text-muted-foreground mb-0.5">
-                                Impact Level
-                            </p>
-                            <p className="text-sm font-black text-foreground">Transformative</p>
-                        </div>
-                        <div className={`h-8 w-8 flex items-center justify-center bg-indigo-500 rounded-full ${index % 2 === 1 ? "order-first mr-4" : ""}`}>
-                            <TrendingUp size={16} className="text-white" />
-                        </div>
-                    </div>
+
                 </div>
             </motion.div>
         </div>

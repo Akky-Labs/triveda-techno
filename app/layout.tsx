@@ -35,8 +35,8 @@ export default function RootLayout({
             <body className="min-h-screen bg-background font-sans antialiased text-foreground" suppressHydrationWarning>
                 <ThemeProvider
                     attribute="class"
-                    defaultTheme="dark"
-                    enableSystem
+                    defaultTheme="light"
+                    enableSystem={false}
                     disableTransitionOnChange
                 >
                     <AccentThemeProvider>

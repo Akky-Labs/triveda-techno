@@ -29,52 +29,59 @@ const TRUST_STATS = [
 
 export default function TrustStrip() {
     return (
-        <section className="relative z-20 px-4 py-12 md:py-20 bg-background">
-            <div className="max-w-7xl mx-auto">
-                <motion.div
-                    initial={{ opacity: 0, y: 40 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.7, ease: "easeOut" }}
-                    className="bg-card/40 backdrop-blur-2xl border border-border/80 rounded-3xl p-6 md:p-10 shadow-xl shadow-indigo-500/10"
-                >
-                    <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12">
-                        <div className="shrink-0 text-center md:text-left">
-                            <h2 className="text-sm font-bold uppercase tracking-[0.2em] text-indigo-500 mb-2">
-                                Trusted Excellence
-                            </h2>
-                            <p className="text-xl md:text-2xl font-semibold text-foreground max-w-[280px]">
-                                Trusted by growing businesses across industries
-                            </p>
-                        </div>
-
-                        <div className="h-px w-full md:h-16 md:w-px bg-border/50" />
-
-                        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-10 w-full">
-                            {TRUST_STATS.map((stat, index) => (
-                                <motion.div
-                                    key={stat.label}
-                                    initial={{ opacity: 0, x: 20 }}
-                                    whileInView={{ opacity: 1, x: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: index * 0.1, duration: 0.5 }}
-                                    className="flex flex-col gap-1"
-                                >
-                                    <div className="flex items-center gap-2 mb-1">
-                                        {stat.icon}
-                                        <span className="text-2xl md:text-3xl font-black text-foreground">
-                                            {stat.value}
-                                        </span>
-                                    </div>
-                                    <p className="text-xs md:text-sm font-medium text-muted-foreground uppercase tracking-wider">
-                                        {stat.label}
-                                    </p>
-                                </motion.div>
-                            ))}
-                        </div>
-                    </div>
-                </motion.div>
-            </div>
-        </section>
+         <section className="relative z-20 px-4 py-12 md:py-20 bg-background overflow-hidden">
+             {/* Subltle ambient glow behind the section */}
+             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl h-64 bg-indigo-500/5 blur-[120px] rounded-full pointer-events-none" />
+             
+             <div className="max-w-7xl mx-auto">
+                 <motion.div
+                     initial={{ opacity: 0, y: 40 }}
+                     whileInView={{ opacity: 1, y: 0 }}
+                     viewport={{ once: true, margin: "-100px" }}
+                     transition={{ duration: 0.8, ease: "circOut" }}
+                     className="group relative bg-card/40 backdrop-blur-2xl border border-border/60 hover:border-indigo-500/30 rounded-[2.5rem] p-8 md:px-12 md:py-14 shadow-2xl shadow-indigo-500/5 transition-all duration-500"
+                 >
+                     <div className="flex flex-col lg:flex-row items-center justify-between gap-10 md:gap-16">
+                         <div className="shrink-0 text-center lg:text-left">
+                             <h2 className="text-[10px] font-black uppercase tracking-[0.4em] text-indigo-500 mb-4 flex items-center justify-center lg:justify-start gap-2">
+                                 <span className="h-1 w-8 bg-indigo-500/40 rounded-full" />
+                                 Trusted Excellence
+                             </h2>
+                             <p className="text-2xl md:text-3xl font-black text-foreground max-w-[340px] leading-tight tracking-tighter">
+                                 Trusted by growing businesses across industries
+                             </p>
+                         </div>
+ 
+                         <div className="hidden lg:block h-20 w-px bg-linear-to-b from-transparent via-border/80 to-transparent" />
+ 
+                         <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 md:gap-4 w-full">
+                             {TRUST_STATS.map((stat, index) => (
+                                 <motion.div
+                                     key={stat.label}
+                                     initial={{ opacity: 0, scale: 0.9 }}
+                                     whileInView={{ opacity: 1, scale: 1 }}
+                                     viewport={{ once: true }}
+                                     transition={{ delay: index * 0.1, duration: 0.6 }}
+                                     whileHover={{ y: -5 }}
+                                     className="flex flex-col items-center lg:items-start group/item transition-all duration-300"
+                                 >
+                                     <div className="flex items-center gap-2.5 mb-2">
+                                         <div className="p-2 rounded-lg bg-indigo-500/5 group-hover/item:bg-indigo-500/10 transition-colors">
+                                             {stat.icon}
+                                         </div>
+                                         <span className="text-3xl md:text-4xl font-black text-foreground tracking-tighter">
+                                             {stat.value}
+                                         </span>
+                                     </div>
+                                     <p className="text-[10px] md:text-[11px] font-bold text-muted-foreground uppercase tracking-widest text-center lg:text-left leading-tight">
+                                         {stat.label}
+                                     </p>
+                                 </motion.div>
+                             ))}
+                         </div>
+                     </div>
+                 </motion.div>
+             </div>
+         </section>
     );
 }

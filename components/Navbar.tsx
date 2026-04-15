@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { LayoutGrid, Menu, X, Moon, Sun, Palette } from "lucide-react";
+import { LayoutGrid, Menu, X, Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useAccentTheme, ACCENT_THEMES } from "./AccentThemeProvider";
 import Link from "next/link";
@@ -14,7 +14,7 @@ const NAV_ITEMS = [
     { name: "Services", path: "/#services", isSection: true },
     { name: "Case Studies", path: "/case-studies", isSection: false },
     { name: "Industries", path: "/#industries", isSection: true },
-    { name: "Team", path: "/#team", isSection: true },
+
     { name: "Contact", path: "/#contact", isSection: true },
 ];
 
@@ -22,7 +22,7 @@ export default function Navbar() {
     const [scrolled, setScrolled] = useState(false);
     const [mobileOpen, setMobileOpen] = useState(false);
 
-    const [paletteOpen, setPaletteOpen] = useState(false);
+
     const { resolvedTheme, setTheme } = useTheme();
     const { accent, setAccent } = useAccentTheme();
     const [mounted, setMounted] = useState(false);
@@ -64,18 +64,16 @@ export default function Navbar() {
                 initial={{ y: -100, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.8, ease: "circOut" }}
-                className={`mx-auto flex max-w-6xl items-center justify-between rounded-2xl border px-4 py-2 backdrop-blur-2xl transition-all duration-500 ${scrolled
-                        ? "border-indigo-500/20 bg-background/80 shadow-2xl shadow-indigo-500/10"
-                        : "border-border bg-background/40"
+                className={`mx-auto flex max-w-6xl items-center justify-between rounded-2xl border px-2 sm:px-3 md:px-4 py-2 backdrop-blur-2xl transition-all duration-500 ${scrolled
+                    ? "border-indigo-500/20 bg-background/80 shadow-2xl shadow-indigo-500/10"
+                    : "border-border bg-background/40"
                     }`}
             >
                 {/* Logo */}
-                <Link href="/" className="flex items-center gap-2.5 hover:scale-105 transition-transform active:scale-95">
-                    <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-linear-to-br from-indigo-500 to-blue-600 text-white shadow-lg shadow-indigo-500/30">
-                        <LayoutGrid size={18} />
-                    </div>
-                    <span className="text-xl font-bold tracking-tight text-foreground">
-                        Triveda
+                <Link href="/" className="flex items-center gap-2 hover:scale-105 transition-transform active:scale-95">
+
+                    <span className="text-sm sm:text-lg md:text-xl font-bold tracking-tight text-foreground whitespace-nowrap">
+                        Triveda Technologies
                     </span>
                 </Link>
 
@@ -93,69 +91,13 @@ export default function Navbar() {
                 </div>
 
                 {/* Actions */}
-                <div className="flex items-center gap-2">
-                    {/* Accent Palette Picker */}
-                    <div className="relative">
-                        <button
-                            onClick={() => setPaletteOpen(!paletteOpen)}
-                            className="flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 bg-white/5 transition-all hover:bg-white/10 hover:border-indigo-500/30 text-foreground"
-                            title="Change Accent Color"
-                        >
-                            <Palette size={16} />
-                        </button>
+                <div className="flex items-center gap-1.5 sm:gap-2">
 
-                        <AnimatePresence>
-                            {paletteOpen && (
-                                <motion.div
-                                    initial={{ opacity: 0, scale: 0.9, y: -5 }}
-                                    animate={{ opacity: 1, scale: 1, y: 0 }}
-                                    exit={{ opacity: 0, scale: 0.9, y: -5 }}
-                                    transition={{ duration: 0.2 }}
-                                    className="absolute right-0 top-12 z-50 rounded-2xl border border-border bg-card/95 backdrop-blur-2xl p-3 shadow-2xl min-w-[200px]"
-                                >
-                                    <p className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground mb-2.5 px-1">
-                                        Accent Color
-                                    </p>
-                                    <div className="flex flex-col gap-1">
-                                        {ACCENT_THEMES.map((theme) => (
-                                            <button
-                                                key={theme.id}
-                                                onClick={() => {
-                                                    setAccent(theme.id);
-                                                    setPaletteOpen(false);
-                                                }}
-                                                className={`flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition-all ${
-                                                    accent === theme.id
-                                                        ? "bg-white/10 text-foreground"
-                                                        : "text-muted-foreground hover:bg-white/5 hover:text-foreground"
-                                                }`}
-                                            >
-                                                <div className="flex items-center gap-1">
-                                                    <div
-                                                        className="h-4 w-4 rounded-full shadow-inner"
-                                                        style={{ background: theme.color500 }}
-                                                    />
-                                                    <div
-                                                        className="h-4 w-4 rounded-full shadow-inner -ml-1.5"
-                                                        style={{ background: theme.colorSecondary }}
-                                                    />
-                                                </div>
-                                                <span>{theme.name}</span>
-                                                {accent === theme.id && (
-                                                    <span className="ml-auto text-[10px] font-mono opacity-50">✓</span>
-                                                )}
-                                            </button>
-                                        ))}
-                                    </div>
-                                </motion.div>
-                            )}
-                        </AnimatePresence>
-                    </div>
 
                     {/* Theme Toggle */}
                     <button
                         onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
-                        className="flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 bg-white/5 transition-all hover:bg-white/10 hover:border-indigo-500/30 text-foreground"
+                        className="flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-xl border border-white/10 bg-white/5 transition-all hover:bg-white/10 hover:border-indigo-500/30 text-foreground"
                     >
                         {resolvedTheme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
                     </button>
@@ -171,7 +113,7 @@ export default function Navbar() {
 
                     <button
                         onClick={() => setMobileOpen(!mobileOpen)}
-                        className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-foreground lg:hidden"
+                        className="flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-foreground lg:hidden"
                     >
                         {mobileOpen ? <X size={18} /> : <Menu size={18} />}
                     </button>

@@ -2,7 +2,7 @@
 
 import React, { createContext, useContext, useEffect, useState } from "react";
 
-export type AccentTheme = "indigo" | "emerald" | "violet" | "rose" | "sky";
+export type AccentTheme = "indigo";
 
 interface AccentThemeContextType {
     accent: AccentTheme;
@@ -25,10 +25,6 @@ export const ACCENT_THEMES: {
     colorSecondary: string;
 }[] = [
     { id: "indigo", name: "Indigo", color400: "#818cf8", color500: "#6366f1", color600: "#4f46e5", colorSecondary: "#22d3ee" },
-    { id: "emerald", name: "Emerald", color400: "#34d399", color500: "#10b981", color600: "#059669", colorSecondary: "#2dd4bf" },
-    { id: "violet", name: "Violet", color400: "#a78bfa", color500: "#8b5cf6", color600: "#7c3aed", colorSecondary: "#e879f9" },
-    { id: "rose", name: "Rose", color400: "#fb7185", color500: "#f43f5e", color600: "#e11d48", colorSecondary: "#fbbf24" },
-    { id: "sky", name: "Sky", color400: "#38bdf8", color500: "#0ea5e9", color600: "#0284c7", colorSecondary: "#a5f3fc" },
 ];
 
 export function AccentThemeProvider({ children }: { children: React.ReactNode }) {

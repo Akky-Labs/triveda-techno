@@ -11,8 +11,8 @@ import VelocityScroll from "@/components/VelocityScroll";
 import Advantages from "@/components/Advantages";
 import Stats from "@/components/Stats";
 import Industries from "@/components/Industries";
-// import Testimonials from "@/components/Testimonials";
-import Team from "@/components/Team";
+import Testimonials from "@/components/Testimonials";
+import SuccessStories from "@/components/SuccessStories";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import DigitalEcosystem from "@/components/DigitalEcosystem";
@@ -35,7 +35,7 @@ export default function Home() {
                     <Stats />
                     <Industries />
                     {/* <Testimonials /> */}
-                    <Team />
+                    <SuccessStories />
                     <Contact />
                 </main>
                 <Footer />
